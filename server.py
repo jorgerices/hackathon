@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from cards import cards
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./static')
 
 '''
 # turno 1
