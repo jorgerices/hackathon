@@ -21,43 +21,52 @@
             </div>
         </nav>
         <ul>
-            
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-4"> 
+                <div class="col-4 mx-center"> 
                     {% for card in cards %} 
-                    <div class="{% if card.power %}card card__unit mb-2{% else %}card card__effect mb-2{% endif %}">
-                        <div class="card-header">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
-                                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-                            </svg>
+                    <div class="{% if card.power %}card card__unit mt-2{% else %}card card__effect mt-2{% endif %}">
+                        <div class="{% if card.power %}card-header{% else %}card-header d-none{% endif %}">
+                            <i class="bi bi-people-fill icon-gempeople "></i>
                             <h2>{{ card.name }}</h2>
                             <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gem" viewBox="0 0 16 16">
-                                    <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002-2.195 6.828z"/></svg>
+                                <i class="bi bi-gem text-danger"></i>
+
                                 <span>{{ card.cost }}</span>
+                            </div>
+                        </div>
+                        <div class="{% if card.power %}card-header d-none{% else %}card-header{% endif %}">
+                            <i class="bi bi-exclamation-diamond-fill icon-gempeople"></i>
+                            <h2>{{ card.name }}</h2>
+                            <div>
+                                <i class="bi bi-gem text-danger"></i>
+                                <span>{{ card.cost }}</span>
+
                             </div>
                         </div>
                         <img src='{{ card.url_img }}' class="card-img-top p-3" alt="...">
                         <!--"https://dibujosalapiz.com/wp-content/uploads/2020/06/como-dibujar-dragon-realista-paso-a-paso.png"-->
-                        <div class="card-body rounded border shadow">
-
-                            <p class="card-text">
-                                <i class="bi bi-lightning-fill"></i> {{ card.res }}
-                            </p>
-                            <p class="card-text">
-                                <i class="bi bi-shield-shaded"></i> {{ card.power }}
-                            </p>
-                            <div>
-                                <p>
-                                    legendary
-                                </p>    
+                        <div class="card-body rounded border  shadow">
+                            <div class="{% if card.power %} {% else %} d-none {% endif %}">
+                                <p class="card-text">
+                                    <i class="bi bi-lightning-fill fs-4"></i> {{ card.res }}
+                                </p>
+                                <p class="card-text">
+                                    <i class="bi bi-shield-shaded fs-4"></i> {{ card.power }}
+                                </p>
+                                <div>
+                                    <p class="legendary fs-3">
+                                        legendary
+                                    </p>    
+                                </div>
                             </div>
+                            <div class="{% if card.power %}d-none {% else %} {% endif %}">
+                                <p class="card-text text-right fs-4 p-0">
+                                    {{ card.text }} 
+                                </p>
+                            </div>
+                            
                         </div>
-                    </div>
-                    {% endfor %}
+                    </div>                    {% endfor %}
                 </div>
                 <!--
                 <div class="col-4">
@@ -88,7 +97,7 @@
                     </div>
                     {% endfor %}
                 </div>-->
-                <div class="col-2"></div>
+                
             </div>    
             
         </ul>

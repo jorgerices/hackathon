@@ -37,6 +37,7 @@
     background-color: white;
     opacity: 75%;
     width: 95%;
+    height: 11rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
     display: block;
@@ -68,5 +69,9 @@ p {
     width: 100%;
     font-size: 25px;
     text-align: end;
-    padding-left: 200px;
+   
+}
+
+.icon-gempeople {
+    font-size: 1.6rem;
 }
