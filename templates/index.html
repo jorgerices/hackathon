@@ -2,12 +2,12 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Template para Hackathon</title>
+        <title>Hackathon Python</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -15,58 +15,75 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     </head>
     <body>
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar__background">
             <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">HACKATON PYTHON</span>
+            <span class="navbar-brand mb-0 h1 mx-auto">HACKATHON PYTHON</span>
             </div>
         </nav>
-        <ul>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning text-dark fs-5 col-6 mx-auto mt-3 text-center rounded shadow" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="d-grid gap-2 col-3 mx-auto my-1 py-2">
+            <button class='btn btn-info text-white fs-3 fw-bold rounded-3' type='submit' onClick="window.location.reload();">Siguiente jugada</button>
+        </div>
+            
+        </input>
+        <div class=container-fluid>
             <div class="row">
-                <div class="col-4 mx-center"> 
+                <div class="col-8 mx-auto"> 
+                    <div class="row">
                     {% for card in cards %} 
-                    <div class="{% if card.power %}card card__unit mt-2{% else %}card card__effect mt-2{% endif %}">
-                        <div class="{% if card.power %}card-header{% else %}card-header d-none{% endif %}">
-                            <i class="bi bi-people-fill icon-gempeople "></i>
-                            <h2>{{ card.name }}</h2>
-                            <div>
-                                <i class="bi bi-gem text-danger"></i>
-
-                                <span>{{ card.cost }}</span>
-                            </div>
-                        </div>
-                        <div class="{% if card.power %}card-header d-none{% else %}card-header{% endif %}">
-                            <i class="bi bi-exclamation-diamond-fill icon-gempeople"></i>
-                            <h2>{{ card.name }}</h2>
-                            <div>
-                                <i class="bi bi-gem text-danger"></i>
-                                <span>{{ card.cost }}</span>
-
-                            </div>
-                        </div>
-                        <img src='{{ card.url_img }}' class="card-img-top p-3" alt="...">
-                        <!--"https://dibujosalapiz.com/wp-content/uploads/2020/06/como-dibujar-dragon-realista-paso-a-paso.png"-->
-                        <div class="card-body rounded border  shadow">
-                            <div class="{% if card.power %} {% else %} d-none {% endif %}">
-                                <p class="card-text">
-                                    <i class="bi bi-lightning-fill fs-4"></i> {{ card.res }}
-                                </p>
-                                <p class="card-text">
-                                    <i class="bi bi-shield-shaded fs-4"></i> {{ card.power }}
-                                </p>
-                                <div>
-                                    <p class="legendary fs-3">
-                                        legendary
-                                    </p>    
+                        <div class="col-6">
+                            <div class="{% if card.power %}card card__unit mt-2{% else %}card card__effect mt-2{% endif %}">
+                                <div class="{% if card.power %}card-header{% else %}card-header d-none{% endif %}">
+                                    <i class="bi bi-people-fill icon-gempeople text-sucess "></i>
+                                    <h2>{{ card.name }}</h2>
+                                    <div>
+                                        <i class="bi bi-gem text-danger"></i>
+                                        <span>{{ card.cost }}</span>
+                                    </div>
+                                </div>
+                                <div class="{% if card.power %}card-header d-none{% else %}card-header{% endif %}">
+                                    <i class="bi bi-exclamation-diamond-fill icon-gempeople text-warning"></i>
+                                    <h2>{{ card.name }}</h2>
+                                    <div>
+                                        <i class="bi bi-gem text-danger"></i>
+                                        <span>{{ card.cost }}</span>
+                                    </div>
+                                </div>
+                                <img src='{{ card.url_img }}' class="card-img-top p-3" alt="...">
+                                <!--"https://dibujosalapiz.com/wp-content/uploads/2020/06/como-dibujar-dragon-realista-paso-a-paso.png"-->
+                                <div class="card-body rounded border  shadow">
+                                    <div class="{% if card.power %} {% else %} d-none {% endif %}">
+                                        <p class="card-text my-0">
+                                            <i class="bi bi-lightning-fill fs-5 text-primary"></i>Power: {{ card.power }}
+                                        </p>
+                                        <p class="card-text mb-0">
+                                            <i class="bi bi-shield-shaded fs-5 text-warning"></i>Resistance: {{ card.res }}
+                                        </p>
+                                        <div>
+                                            <p class="legendary fs-5 mt-2">
+                                                <i class="bi bi-star text-warning"></i><i class="bi bi-star text-warning"></i><i class="bi bi-star text-warning"></i><i class="bi bi-star text-warning"></i><i class="bi bi-star text-warning"></i>legendary
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="{% if card.power %}d-none {% else %} {% endif %}">
+                                        <p class="card-text text-center fs-4 p-0">
+                                            {{ card.text }}
+                                        </p>
+                                    </div>
+                            
                                 </div>
                             </div>
-                            <div class="{% if card.power %}d-none {% else %} {% endif %}">
-                                <p class="card-text text-right fs-4 p-0">
-                                    {{ card.text }} 
-                                </p>
-                            </div>
-                            
                         </div>
-                    </div>                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
                 <!--
                 <div class="col-4">
@@ -100,7 +117,7 @@
                 
             </div>    
             
-        </ul>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

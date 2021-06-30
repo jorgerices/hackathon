@@ -54,16 +54,16 @@ class Player():
         print('-' * 20)
 
 # Effect Cards
-hardAlgorithm = Effect('Hard Algorithm', 2, "Increase target's resistance by 3", 'res', 3, 'https://media.makeameme.org/created/algorithms-5ca443.jpg')
-promise = Effect('Promise', 1, "Reduce target's resistance by 2", 'res', -2, 'https://media.makeameme.org/created/i-promise-jmjjcy.jpg')
-pairProgramming = Effect('Pair Programming', 3, "Increase target's power by 2", 'power', 2, "https://cdn.hackernoon.com/hn-images/1*zRrkoarX94CUZe3-NrSYGg.png")
+# hardAlgorithm = Effect('Hard Algorithm', 2, "Increase target's resistance by 3", 'res', 3, 'https://media.makeameme.org/created/algorithms-5ca443.jpg')
+# promise = Effect('Promise', 1, "Reduce target's resistance by 2", 'res', -2, 'https://media.makeameme.org/created/i-promise-jmjjcy.jpg')
+# pairProgramming = Effect('Pair Programming', 3, "Increase target's power by 2", 'power', 2, "https://cdn.hackernoon.com/hn-images/1*zRrkoarX94CUZe3-NrSYGg.png")
 
 # Unit Cards
-Red_Jinja=Unit("Red Ninja", 3,3,4,"https://www.karatemart.com/images/products/large/red-ninja-uniform-800583.jpg")
-Black_Jinja=Unit("Black Ninja",4,5,4,"https://pbs.twimg.com/profile_images/1336354559048880129/yIQSfFLy_400x400.jpg")
+# Red_Jinja=Unit("Red Ninja", 3,3,4,"https://www.karatemart.com/images/products/large/red-ninja-uniform-800583.jpg")
+# Black_Jinja=Unit("Black Ninja",4,5,4,"https://pbs.twimg.com/profile_images/1336354559048880129/yIQSfFLy_400x400.jpg")
 
 # All cards list
-cards = [hardAlgorithm, promise, pairProgramming, Red_Jinja, Black_Jinja]
+# cards = [hardAlgorithm, promise, pairProgramming, Red_Jinja, Black_Jinja]
 
 # -------------------- Testing ----------------------------
 # Testing if Unit           name,  cost,pow, res
